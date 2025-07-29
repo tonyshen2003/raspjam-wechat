@@ -1,0 +1,56 @@
+
+{
+  "schema": {
+    "title": "知识库文档",
+    "description": "存储知识库文档内容",
+    "properties": {
+      "title": {
+        "type": "string",
+        "title": "文档标题",
+        "maxLength": 100
+      },
+      "content": {
+        "type": "string",
+        "title": "文档内容",
+        "format": "markdown"
+      },
+      "category": {
+        "type": "string",
+        "title": "分类",
+        "maxLength": 50
+      },
+      "tags": {
+        "type": "array",
+        "title": "标签",
+        "items": {
+          "type": "string",
+          "maxLength": 20
+        }
+      },
+      "createdAt": {
+        "type": "string",
+        "title": "创建时间",
+        "format": "date-time"
+      },
+      "updatedAt": {
+        "type": "string",
+        "title": "更新时间",
+        "format": "date-time"
+      }
+    },
+    "required": ["title", "content"],
+    "indexes": [
+      {
+        "name": "title_index",
+        "fields": ["title"],
+        "unique": false
+      },
+      {
+        "name": "category_index",
+        "fields": ["category"],
+        "unique": false
+      }
+    ]
+  }
+}
+    
